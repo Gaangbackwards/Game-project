@@ -1,0 +1,64 @@
+ :root{--bg:#0b1020;--accent:#4fd1c5;--muted:#98a0b3;--danger:#ff6b6b;--warning:#ffd700}
+    html,body{height:100%;margin:0;padding:0;overflow:hidden;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;touch-action:none;-webkit-user-select:none;user-select:none}
+    .wrap{display:flex;flex-direction:column;height:100vh;width:100vw}
+    header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0));color:white;height:50px;box-sizing:border-box}
+    .brand{display:flex;gap:8px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+    .title{font-size:16px}
+    .subtitle{font-size:10px;color:var(--muted)}
+    .controls{display:flex;gap:8px;align-items:center}
+    button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:6px;color:var(--muted);cursor:pointer;font-size:11px;transition:all 0.2s}
+    button:hover{border-color:var(--accent);color:white}
+    button.active{background:var(--accent);color:#051018;border-color:var(--accent);font-weight:600}
+    main{flex:1;display:flex;align-items:center;justify-content:center;padding:8px;overflow:hidden;position:relative}
+    .gamebox{width:100%;height:100%;max-width:1200px;max-height:800px;background:#000;border-radius:8px;box-shadow:0 10px 30px rgba(2,6,23,0.7);position:relative;overflow:hidden}
+    canvas{display:block;width:100%;height:100%;cursor:none}
+    
+    .hud{position:absolute;left:12px;top:12px;color:white;font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,0.6);z-index:10;pointer-events:none}
+    .hud .score{font-size:18px;margin-bottom:6px}
+    .hud .health{font-size:14px;color:var(--danger);margin-bottom:4px}
+    .hud .level{font-size:12px;color:var(--accent)}
+    .hud .powerup{font-size:12px;color:var(--warning);margin-top:4px}
+    .hud .lives{font-size:14px;color:#ff8888;margin-top:6px}
+    .hud .leaks{font-size:12px;color:#ffaa66;margin-top:4px}
+    
+    .highscore-box{position:absolute;right:12px;bottom:12px;color:var(--muted);font-size:12px;z-index:10;pointer-events:none;background:rgba(11,16,32,0.7);padding:4px 8px;border-radius:6px;backdrop-filter:blur(4px)}
+    
+    .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:20;background:rgba(3,6,18,0.92)}
+    .overlay.hidden{display:none !important}
+    
+    .menu{background:rgba(11,16,32,0.95);backdrop-filter:blur(12px);border:1px solid rgba(79,209,197,0.3);border-radius:16px;padding:24px 28px;color:white;pointer-events:auto;text-align:center;max-width:450px;width:90vw}
+    .menu h1{margin:0 0 12px 0;font-size:26px}
+    .menu p{margin:0 0 16px 0;color:var(--muted);line-height:1.5;font-size:13px}
+    .menu .highlight{color:var(--accent);font-weight:600}
+    .diff-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
+    .diff-btn{padding:10px;border:1px solid rgba(255,255,255,0.1);border-radius:8px;background:rgba(255,255,255,0.05);color:white;cursor:pointer;font-weight:600;font-size:13px;transition:all 0.2s}
+    .diff-btn:hover{background:rgba(79,209,197,0.2);border-color:var(--accent)}
+    .diff-btn.selected{background:var(--accent);color:#051018;border-color:var(--accent)}
+    .menu-btn{width:100%;padding:10px;border:1px dashed rgba(255,255,255,0.2);border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font-weight:600;font-size:13px;margin:8px 0;transition:all 0.2s}
+    .menu-btn:hover{border-color:var(--accent);color:white}
+    .menu button.primary{background:linear-gradient(90deg,var(--accent),#7c3aed);border:0;color:#051018;font-weight:700;padding:12px 24px;font-size:15px;border-radius:8px;margin-top:8px;width:100%}
+    .menu button.primary:disabled{opacity:0.5;cursor:not-allowed}
+    
+    .pause-overlay{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;z-index:18;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px)}
+    .pause-overlay.visible{display:flex}
+    .pause-overlay h2{color:white;font-size:36px;margin:0 0 20px 0;text-shadow:0 4px 15px rgba(0,0,0,0.8)}
+    .pause-overlay button{background:var(--accent);border:0;color:#051018;font-weight:700;padding:12px 24px;border-radius:8px;margin:8px;font-size:14px;cursor:pointer;pointer-events:auto;min-width:160px}
+    .pause-overlay button.exit{background:#ff6b6b;color:white}
+    
+    .mobile-controls{position:absolute;bottom:20px;left:0;right:0;display:none;pointer-events:none;z-index:15}
+    .joystick-area{position:absolute;bottom:30px;left:30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:auto}
+    .joystick-base{position:absolute;width:100%;height:100%;border-radius:50%;border:2px solid rgba(79,209,197,0.4)}
+    .joystick-knob{position:absolute;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#7c3aed);left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 4px 20px rgba(79,209,197,0.5)}
+    .fire-btn{position:absolute;bottom:40px;right:30px;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#ff6b6b,#ee5a5a);border:3px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:12px;pointer-events:auto;box-shadow:0 6px 25px rgba(255,107,107,0.6)}
+    .fire-btn:active{transform:scale(0.95)}
+    .bomb-btn{position:absolute;bottom:140px;right:30px;width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#ffd700,#e6c200);border:3px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;color:#1a1a2e;font-weight:700;font-size:11px;pointer-events:auto;box-shadow:0 6px 25px rgba(255,215,0,0.5)}
+    .bomb-btn:active{transform:scale(0.95)}
+    .bomb-btn.cooldown{opacity:0.5;pointer-events:none}
+    
+    @media (max-width:768px){
+      .mobile-controls{display:block}
+      .hud{font-size:14px}
+      .menu{padding:20px}
+    }
+    footer{padding:6px 12px;text-align:center;color:var(--muted);font-size:10px;height:30px;box-sizing:border-box}

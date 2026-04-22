@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>FlyGaa Shooter — Boss Edition (Angga)</title>
+  
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">FG</div>
+        <div>
+          <div class="title">FlyGaa Shooter — Boss Edition</div>
+          <div class="subtitle">by Angga • Episode 1</div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="btn-pause" disabled>⏸️ Pause</button>
+        <button id="hud-autofire">🔁 Auto: OFF</button>
+        <button id="btn-sound">🔊 Sound: ON</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="gamebox" id="gamebox">
+        <canvas id="game"></canvas>
+        
+        <div class="hud">
+          <div class="score">Score: <span id="score">0</span></div>
+          <div class="health">❤️ <span id="health">100</span>/100</div>
+          <div class="level">Level: <span id="level">1</span>/5</div>
+          <div class="powerup" id="powerup-status"></div>
+          <div class="lives">Nyawa: <span id="lives">❤️❤️❤️</span></div>
+          <div class="leaks">🚫 Leaks: <span id="leaks">0</span>/<span id="leak-limit-display">5</span></div>
+        </div>
+        <div class="highscore-box">🏆 Highscore: <span id="high">0</span></div>
+        
+        <div class="pause-overlay" id="pause-overlay">
+          <h2 id="pause-title">⏸️ PAUSED</h2>
+          <button id="pause-resume">▶️ Resume</button>
+          <button id="pause-exit" class="exit">🚪 Exit to Menu</button>
+        </div>
+
+        <div class="mobile-controls">
+          <div class="joystick-area" id="joystick-area"><div class="joystick-base"></div><div class="joystick-knob" id="joystick-knob"></div></div>
+          <div class="fire-btn" id="fire-btn">FIRE</div>
+          <div class="bomb-btn" id="bomb-btn">💣</div>
+        </div>
+
+        <div class="overlay" id="overlay">
+          <div class="menu" id="menu">
+            <h1>🚀 FlyGaa Shooter</h1>
+            <p>Episode 1 • Kalahkan 5 Boss dalam 15 menit!<br>
+            <span class="highlight">Kontrol:</span> 🖥️ WASD + SPACE • 📱 Analog + FIRE<br>
+            Pilih tingkat kesulitan (Wajib):</p>
+            <div class="diff-btns">
+              <button class="diff-btn" data-diff="testers">🔓 Testers (∞)</button>
+              <button class="diff-btn" data-diff="easy">🌱 Easy (Leak:10)</button>
+              <button class="diff-btn selected" data-diff="normal">⚖️ Normal (Leak:8)</button>
+              <button class="diff-btn" data-diff="hard">🔥 Hard (Leak:5)</button>
+            </div>
+            <button id="menu-autofire" class="menu-btn">🔁 Auto Fire: OFF</button>
+            <button id="start" class="primary" disabled>🎮 MULAI GAME</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>Balanced Edition • 15-Min Campaign • Mobile Ready</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
